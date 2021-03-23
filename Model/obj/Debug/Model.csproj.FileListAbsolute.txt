@@ -1,0 +1,16 @@
+F:\Workspace\ASP.NET\OnlineShop\Model\bin\Debug\Model.dll.config
+F:\Workspace\ASP.NET\OnlineShop\Model\bin\Debug\Model.dll
+F:\Workspace\ASP.NET\OnlineShop\Model\bin\Debug\Model.pdb
+F:\Workspace\ASP.NET\OnlineShop\Model\bin\Debug\EntityFramework.dll
+F:\Workspace\ASP.NET\OnlineShop\Model\bin\Debug\EntityFramework.SqlServer.dll
+F:\Workspace\ASP.NET\OnlineShop\Model\bin\Debug\EntityFramework.xml
+F:\Workspace\ASP.NET\OnlineShop\Model\bin\Debug\EntityFramework.SqlServer.xml
+F:\Workspace\ASP.NET\OnlineShop\Model\obj\Debug\Model.csprojAssemblyReference.cache
+F:\Workspace\ASP.NET\OnlineShop\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+F:\Workspace\ASP.NET\OnlineShop\Model\obj\Debug\Model.csproj.CopyComplete
+F:\Workspace\ASP.NET\OnlineShop\Model\obj\Debug\Model.dll
+F:\Workspace\ASP.NET\OnlineShop\Model\obj\Debug\Model.pdb
+F:\Workspace\ASP.NET\OnlineShop\Model\bin\Debug\PagedList.dll
+F:\Workspace\ASP.NET\OnlineShop\Model\bin\Debug\PagedList.Mvc.dll
+F:\Workspace\ASP.NET\OnlineShop\Model\bin\Debug\PagedList.xml
+F:\Workspace\ASP.NET\OnlineShop\Model\bin\Debug\PagedList.Mvc.xml
