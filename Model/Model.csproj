@@ -61,6 +61,8 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Dao\CategoryDao.cs" />
+    <Compile Include="Dao\ContentDao.cs" />
+    <Compile Include="Dao\MenuDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="EF\About.cs" />
     <Compile Include="EF\Category.cs" />

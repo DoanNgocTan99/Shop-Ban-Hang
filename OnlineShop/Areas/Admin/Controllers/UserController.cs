@@ -47,11 +47,13 @@ namespace OnlineShop.Areas.Admin.Controllers
                 long id = dao.Insert(user);
                 if (id > 0)
                 {
+                    SetAlert("Thêm mới người dùng thành công!!", "success");
                     return RedirectToAction("Index", "User");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm User thành công");
+
+                    ModelState.AddModelError("", "Thêm Người dùng không thành công");
                 }
 
             }
@@ -70,11 +72,13 @@ namespace OnlineShop.Areas.Admin.Controllers
                 var result = dao.Update(user);
                 if (result)
                 {
+                    SetAlert("Cập nhập người dùng thành công!!", "success");
+
                     return RedirectToAction("Index", "User");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhập User thành công");
+                    ModelState.AddModelError("", "Cập nhập Người dùng không thành công");
                 }
 
             }
@@ -86,5 +90,15 @@ namespace OnlineShop.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public JsonResult ChangeStatus(long id)
+        {
+            var result = new UserDao().ChangeStatus(id);
+            return Json(new
+            {
+                status = result
+            });
+        }
     }
+
 }

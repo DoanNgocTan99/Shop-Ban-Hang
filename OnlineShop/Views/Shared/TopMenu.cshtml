@@ -1,0 +1,15 @@
+﻿@model List<Model.EF.Menu>
+
+<div class="col-md-4 col-xs-12 col-sm-4" style="padding-left:180px">
+    <!-- Cart -->
+    <ul class="nav navbar-nav">
+        @foreach (var item in Model)
+        {
+            <li class="dropdown cart-nav  ">
+                @*<a href="index.html">Home</a>*@
+                <a href="@item.Link" target="@item.Target">@item.Text</a>
+            </li><!-- / Home -->
+        }
+    </ul>
+    <!-- / .nav .navbar-nav .navbar-right -->
+</div>
