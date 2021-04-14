@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+@section Title{
+    Admin - Tin tức
+    }
+
+@model PagedList.IPagedList<Model.EF.Content>
+@using PagedList.Mvc;
+
+
+@section header{
+    Tin Tức
+}
+@section jsFooter{
+    <script src="~/assets/admin/js/controller/userController.js"></script>
+}
+<div class="row">
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                @using (Html.BeginForm("Index", "Content", FormMethod.Get))
+                {
+                    <div class="row form-group">
+                        <div class="col-md-4">
+                            <input type="text" value="@ViewBag.SearchString" class="form-control bg-light border-0 small" placeholder="Search for..." name="searchString" />
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-success" type="button">
+                                Tìm kiếm
+                            </button>
+                            <a href="Create" class="btn btn-primary">
+                                Thêm mới
+                            </a>
+                        </div>
+                    </div>
+                }
+                <br />
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Tên doanh mục</th>
+                                <th>Tên-doanh-mục</th>
+                                <th>Mô tả</th>
+                                <th>Ảnh</th>
+                                <th>Từ khoá</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr id="row_@item.ID">
+                                    <td>@item.Name</td>
+                                    <td>@item.MetaTitle</td>
+                                    <td>@item.Description</td>
+                                    <td>@item.Image</td>
+                                    <td>@item.MetaKeywords</td>
+                                    <td>
+                                        <input type="checkbox" value=@item.Status val=@item.Status @(item.Status ? "checked=true" : "") />
+                                    </td>
+                                    <td>
+                                        <a href="/Admin/Content/Edit/@item.ID">Sửa</a>
+                                        |
+                                        @Ajax.ActionLink("Xoá", "Delete", new { @Id = item.ID }, new AjaxOptions
+                                  {
+                                      Confirm = "Bạn có muốn xoá bản ghi này?",
+                                      OnComplete = "$('#row_" + @item.ID + "').remove()",
+                                      HttpMethod = "Delete"
+                                  })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

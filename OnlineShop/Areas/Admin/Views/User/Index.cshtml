@@ -5,7 +5,9 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
 }
-
+@section Title{
+    Admin
+}
 @section header{
     Quản Lý Người Dùng
 }
@@ -22,16 +24,14 @@
                 @using (Html.BeginForm("Index", "User", FormMethod.Get))
                 {
                     <div class="row form-group">
-                        <div class="col-md-4">
+                        <div class="col-md-4 form-group">
                             <input type="text" value="@ViewBag.SearchString" class="form-control bg-light border-0 small" placeholder="Search for..." name="searchString" />
                         </div>
-                        <div class="col-md-4">
-                            <button class="btn btn-success" type="button">
-                                @*<i class="fas fa-search fa-sm"></i>*@
+                        <div class="col-md-4 form-group">
+                            <button class="btn btn-success" type="submit">
                                 Tìm kiếm
                             </button>
-                            <a href="Create" class="btn btn-primary" >
-                                @*<i class="fas fa-search fa-sm"></i>*@
+                            <a href="Create" class="btn btn-primary">
                                 Thêm mới
                             </a>
                         </div>

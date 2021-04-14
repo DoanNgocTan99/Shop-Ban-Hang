@@ -12,6 +12,10 @@ namespace OnlineShop.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ViewBag.Slides = new SlideDao().ListAll();
+            var productDao = new ProductDao();
+            ViewBag.NewProducts = productDao.ListNewProduct(9);
+            ViewBag.ListFeatureProducts = productDao.ListFeatureProduct(9);
             return View();
         }
         [ChildActionOnly]
@@ -24,6 +28,12 @@ namespace OnlineShop.Controllers
         public ActionResult TopMenu()
         {
             var model = new MenuDao().ListByGroupId(2);
+            return PartialView(model);
+        }
+        [ChildActionOnly]
+        public ActionResult Footer()
+        {
+            var model = new FooterDao().GetFooter();
             return PartialView(model);
         }
     }

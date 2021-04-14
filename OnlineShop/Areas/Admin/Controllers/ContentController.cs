@@ -11,9 +11,13 @@ namespace OnlineShop.Areas.Admin.Controllers
     public class ContentController : BaseController
     {
         // GET: Admin/Content
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
-            return View();
+             var dao = new ContentDao();
+            var model = dao.ListAllPaging(searchString, page, pageSize);
+
+            ViewBag.SearchString = searchString;
+            return View(model);
         }
         [HttpGet]
         public ActionResult Create()
@@ -28,28 +32,56 @@ namespace OnlineShop.Areas.Admin.Controllers
             var dao = new ContentDao();
             var content = dao.GetByID(id);
 
-            SetViewBag(content.CategoryID);
+            SetViewBag(content.ID);
             return View();
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(Content model)
+        public ActionResult Create(Content content)
         {
             if (ModelState.IsValid)
             {
+                var dao = new ContentDao();
 
+
+                long id = dao.Insert(content);
+                if (id > 0)
+                {
+                    SetAlert("Thêm mới doanh mục thành công!!", "success");
+                    return RedirectToAction("Index", "Content");
+                }
+                else
+                {
+
+                    ModelState.AddModelError("", "Thêm doanh mục không thành công");
+                }
             }
             SetViewBag();
-            return View();
+            return View("Index");
         }
         [HttpPost]
-        public ActionResult Edit(Content model)
+        [ValidateInput(false)]
+
+        public ActionResult Edit(Content content)
         {
             if (ModelState.IsValid)
             {
+                var dao = new ContentDao();
 
+
+                var result = dao.Update(content);
+                if (result)
+                {
+                    SetAlert("Cập nhập người dùng thành công!!", "success");
+
+                    return RedirectToAction("Index", "Content");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Cập nhập Người dùng không thành công");
+                }
             }
-            SetViewBag(model.CategoryID);
+            SetViewBag(content.ID);
             return View();
         }
         public void SetViewBag(long? selectedId = null)

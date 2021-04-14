@@ -10,15 +10,17 @@ namespace Model.EF
     public partial class Category
     {
         public long ID { get; set; }
-
+        [Display(Name = "Tên doanh mục")]
         [StringLength(250)]
         public string Name { get; set; }
 
+        [Display(Name = "Tên-doanh-mục")]
         [StringLength(250)]
         public string MetaTitle { get; set; }
 
         public long? ParentID { get; set; }
 
+        [Display(Name = "Hiển thị")]
         public int? DisplayOrder { get; set; }
 
         [StringLength(250)]
@@ -39,9 +41,10 @@ namespace Model.EF
 
         [StringLength(250)]
         public string MetaDescriptions { get; set; }
+        [Display(Name = "Trạng thái")]
+        public bool Status { get; set; }
 
-        public bool? Status { get; set; }
 
-        public bool? ShowOnHome { get; set; }
+        public bool ShowOnHome { get; set; }
     }
 }

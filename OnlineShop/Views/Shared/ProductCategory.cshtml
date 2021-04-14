@@ -1,0 +1,56 @@
+﻿
+@model List<Model.EF.ProductCategory>
+<div class="col-md-12">
+    <div class="title text-center">
+        <h2>Doanh mục sản phẩm</h2>
+    </div>
+</div>
+@foreach (var item in Model.Where(x => x.ParentID == null))
+{
+    @*var child = Model.Where(x => x.ParentID == item.ID);
+    var parentClass = child.Count() > 0 ? "class=dropdown-toggle data-toggle=dropdown" : "";
+    <li class="dropdown">
+        <a href="/san-pham/@item.MetaTitle-@item.ID" @parentClass>@item.Name</a>
+        @if (child.Count() > 0)
+        {
+            <ul class="dropdown-menu">
+                @foreach (var childItem in child)
+                {
+                    <li><a href="/san-pham/@childItem.MetaTitle-@childItem.ID">@childItem.Name</a></li>
+                }
+            </ul>
+        }
+    </li>*@
+    <div class="col-md-6">
+        <div class="category-box">
+            <a href="/san-pham/@item.MetaTitle-@item.ID">
+                <img src="~/assets/client/images/shop/category/category-1.jpg" alt="" />
+                <div class="content">
+                    <h3>@item.Name</h3>
+                    <p>Shop New Season Clothing</p>
+                </div>
+            </a>
+        </div>
+        @*<div class="category-box">
+            <a href="#!">
+                <img src="~/assets/client/images/shop/category/category-2.jpg" alt="" />
+                <div class="content">
+                    <h3>Smart Casuals</h3>
+                    <p>Get Wide Range Selection</p>
+                </div>
+            </a>
+        </div>*@
+    </div>
+    @*<div class="col-md-6">
+        <div class="category-box category-box-2">
+            <a href="#!">
+                <img src="~/assets/client/images/shop/category/category-3.jpg" alt="" />
+                <div class="content">
+                    <h3>Jewellery</h3>
+                    <p>Special Design Comes First</p>
+                </div>
+            </a>
+        </div>
+    </div>*@
+
+}

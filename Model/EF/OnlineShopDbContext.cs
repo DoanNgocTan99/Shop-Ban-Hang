@@ -86,9 +86,9 @@ namespace Model.EF
                 .Property(e => e.ID)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Footer>()
-                .Property(e => e.Status)
-                .IsFixedLength();
+            //modelBuilder.Entity<Footer>()
+            //    .Property(e => e.Status)
+            //    .IsFixedLength();
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.Code)

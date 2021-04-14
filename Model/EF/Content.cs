@@ -10,15 +10,20 @@ namespace Model.EF
     public partial class Content
     {
         public long ID { get; set; }
-
+        [Display(Name ="Tên doanh mục")]
         [StringLength(250)]
         public string Name { get; set; }
+        [Display(Name = "Tên-doanh-mục")]
 
         [StringLength(250)]
         public string MetaTitle { get; set; }
 
+        [Display(Name = "Mô tả")]
+
         [StringLength(250)]
         public string Description { get; set; }
+
+        [Display(Name = "Ảnh")]
 
         [StringLength(250)]
         public string Image { get; set; }
@@ -40,13 +45,17 @@ namespace Model.EF
         [StringLength(50)]
         public string ModifiedBy { get; set; }
 
+        [Display(Name ="Từ khoá")]
         [StringLength(250)]
         public string MetaKeywords { get; set; }
 
         [StringLength(250)]
         public string MetaDescriptions { get; set; }
+        [Display(Name = "Trạng thái")]
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
+
+        [Display(Name = "Thịnh hành")]
 
         public DateTime? TopHot { get; set; }
 

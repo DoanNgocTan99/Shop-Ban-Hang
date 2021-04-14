@@ -88,4 +88,3 @@ F:\Workspace\ASP.NET\OnlineShop\OnlineShop\bin\PagedList.dll
 F:\Workspace\ASP.NET\OnlineShop\OnlineShop\bin\PagedList.Mvc.dll
 F:\Workspace\ASP.NET\OnlineShop\OnlineShop\bin\PagedList.xml
 F:\Workspace\ASP.NET\OnlineShop\OnlineShop\bin\PagedList.Mvc.xml
-F:\Workspace\ASP.NET\OnlineShop\OnlineShop\bin\CKFinder.dll

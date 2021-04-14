@@ -9,7 +9,7 @@ namespace Model.Dao
 {
     public class MenuDao
     {
-        private OnlineShopDbContext db = null;
+         OnlineShopDbContext db = null;
         public MenuDao()
         {
             db = new OnlineShopDbContext();

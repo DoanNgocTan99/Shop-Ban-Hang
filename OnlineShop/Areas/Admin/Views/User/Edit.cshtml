@@ -16,10 +16,7 @@
 }
 <div class="row">
     <div class="col-lg-7">
-        <div class="p-5">
-            <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Tạo mới tài khoản!</h1>
-            </div>
+        <div class="p-2">
             <div class="form-horizontal">
                 @using (Html.BeginForm("Edit", "User", FormMethod.Post))
                 {
@@ -75,39 +72,6 @@
                                 @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
                             </div>
                         </div>
-
-                        @*<div class="form-group">
-                                @Html.LabelFor(model => model.CreateDate, htmlAttributes: new { @class = "control-label col-md-3" })
-                                <div class="col-md-10">
-                                    @Html.TextBoxFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.CreatrBy, htmlAttributes: new { @class = "control-label col-md-3" })
-                                <div class="col-md-10">
-                                    @Html.TextBoxFor(model => model.CreatrBy, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.CreatrBy, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.ModifiedDate, htmlAttributes: new { @class = "control-label col-md-3" })
-                                <div class="col-md-10">
-                                    @Html.TextBoxFor(model => model.ModifiedDate, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.ModifiedDate, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.ModifiedBy, htmlAttributes: new { @class = "control-label col-md-3" })
-                                <div class="col-md-10">
-                                    @Html.TextBoxFor(model => model.ModifiedBy, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.ModifiedBy, "", new { @class = "text-danger" })
-                                </div>
-                            </div>*@
-
                         <div class="form-group">
                             <div class="col-md-10">
                                 <div class="checkbox">
@@ -119,7 +83,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="btn btn-primary btn-user btn-block  ">
+                            <div class="btn btn-primary btn-user   ">
                                 @*<input type="submit" value="Tạo mới" class="btn btn-default" />*@
                                 <input type="submit" value="Cập nhập" class="btn btn-default" style="color: white;">
                             </div>

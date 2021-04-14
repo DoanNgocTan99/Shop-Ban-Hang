@@ -1,0 +1,85 @@
+﻿
+
+
+@model PagedList.IPagedList<Model.EF.Category>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+@section Title{
+    Admin-Doanh mục tin tức
+}
+@section header{
+    Quản Lý Doanh Mục Tin Tức
+}
+@section jsFooter{
+    <script src="~/assets/admin/js/controller/userController.js"></script>
+}
+<div class="row">
+    <div class="container-fluid">
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <br />
+                @using (Html.BeginForm("Index", "Category", FormMethod.Get))
+                {
+                    <div class="row form-group">
+                        <div class="col-md-4 form-group">
+                            <input type="text" value="@ViewBag.SearchString" class="form-control bg-light border-0 small" placeholder="Search for..." name="searchString" />
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <button class="btn btn-success" type="submit">
+                                Tìm kiếm
+                            </button>
+                            <a href="Create" class="btn btn-primary">
+                                Thêm mới
+                            </a>
+                        </div>
+                    </div>
+                }
+                <br />
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Tên doanh mục</th>
+                                <th>Tên-doanh-mục</th>
+                                <th>Trạng thái</th>
+                                <th>ShowOnHome</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr id="row_@item.ID">
+                                    <td>@item.Name</td>
+                                    <td>@item.MetaTitle</td>
+                                    <td>
+
+                                        <input type="checkbox" value=@item.Status val=@item.Status @(item.Status ? "checked=true" : "") />
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" value=@item.ShowOnHome val=@item.ShowOnHome @(item.ShowOnHome ? "checked=true" : "") />
+                                    </td>
+                                    <td>
+                                        <a href="/Admin/Category/Edit/@item.ID">Sửa</a>
+                                        |
+                                        @Ajax.ActionLink("Xoá", "Delete", new { @Id = item.ID }, new AjaxOptions
+                                  {
+                                      Confirm = "Bạn có muốn xoá bản ghi này?",
+                                      OnComplete = "$('#row_" + @item.ID + "').remove()",
+                                      HttpMethod = "Delete"
+                                  })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
